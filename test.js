@@ -5,8 +5,45 @@ enum SpriteKind {
     Enemy
 }
 let mySprite: Sprite = null
-input.buttonA.onEvent(ButtonEvent.Click, function () {
-	
+input.buttonA.onEvent(ButtonEvent.Down, function () {
+    mySprite.setImage(img`
+. . . . . . . . . . . . . . . . 
+. 5 . . . . . . . . . . . 5 . . 
+. 5 5 5 . 5 5 5 5 . . 5 5 5 . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. . 5 5 f f 5 5 f f 5 5 5 5 . . 
+. 5 5 f 1 f 5 5 f 1 f 5 5 5 5 . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+. 5 5 5 5 5 5 5 f f f f 5 5 5 . 
+. . 5 f f f f f 2 2 2 f 5 5 . . 
+. . 5 f f 2 2 2 2 f f 5 5 . . . 
+. . . 5 5 f f f f f 5 5 5 . . . 
+. . . . . 5 5 5 5 5 5 5 . . . . 
+. . . . . . . . . 5 5 . . . . . 
+. . . . . . . . 5 5 . . . . . . 
+`)
+})
+input.buttonA.onEvent(ButtonEvent.Up, function () {
+    mySprite.setImage(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . 5 5 5 5 . . . . . . 
+. . . . 5 5 5 5 5 5 5 5 . . . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . 5 f f 5 5 5 5 5 5 f f 5 . . 
+. 5 5 f 1 5 5 5 5 5 5 1 f 5 5 . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+. 5 f 5 5 5 5 5 5 5 5 5 5 f 5 . 
+. 5 f 5 5 5 5 5 5 5 5 5 5 f 5 . 
+. 5 5 f f 5 5 5 5 5 5 f f 5 5 . 
+. . 5 5 5 f f f f f f 5 5 5 . . 
+. . . 5 5 5 5 5 5 5 5 5 5 . . . 
+. . . . . 5 5 5 5 5 5 . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
 })
 scene.setBackgroundColor(7)
 mySprite = sprites.create(img`
@@ -15,7 +52,7 @@ mySprite = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 5 . . . . 
 . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
 . . 5 f f 5 5 5 5 5 5 f f 5 . . 
-. 5 5 f e 5 5 5 5 5 5 e f 5 5 . 
+. 5 5 f 1 5 5 5 5 5 5 1 f 5 5 . 
 . 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
 . 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
 . 5 f 5 5 5 5 5 5 5 5 5 5 f 5 . 
@@ -27,4 +64,4 @@ mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(mySprite, 100)
